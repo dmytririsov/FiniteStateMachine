@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">FiniteStateMachines</string>
+    <string name="armed">armed</string>
+    <string name="disarmed">disarmed</string>
+    <string name="lock">LOCK</string>
+    <string name="lockx2">LOCKX2</string>
+    <string name="unlock">UNLOCK</string>
+    <string name="unlockx2">UNLOCKX2</string>
+    <string name="dis_all_unlocked">AlarmDisarmed_AllUnlocked</string>
+    <string name="dis_all_locked">AlarmDisarmed_AllLocked</string>
+    <string name="dis_driver_unlocked">AlarmDisarmed_DriverUnlocked</string>
+    <string name="armed_all_locked">AlarmArmed_AllLocked</string>
+</resources>
