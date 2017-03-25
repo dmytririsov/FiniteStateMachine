@@ -10,4 +10,5 @@
     <string name="dis_all_locked">AlarmDisarmed_AllLocked</string>
     <string name="dis_driver_unlocked">AlarmDisarmed_DriverUnlocked</string>
     <string name="armed_all_locked">AlarmArmed_AllLocked</string>
+    <string name="reset_state">reset state</string>
 </resources>

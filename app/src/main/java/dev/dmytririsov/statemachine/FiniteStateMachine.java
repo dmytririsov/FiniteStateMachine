@@ -4,25 +4,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Created by Dmytri on 25.03.2017.
+ * @author Dmytri on 25.03.2017.
  */
 
-public class FiniteStateMachine {
+public class FiniteStateMachine implements IFiniteStateMachine {
 
+    private static final String ARMED_CONST = "Armed";
     private static final String ROOT_STATE = "AlarmDisarmed_AllUnlocked";
 
-    private static IFiniteStateMachine mListener;
-    private static String mState = ROOT_STATE;
+    private IOnTransitionListener mListener;
+    private String mState = ROOT_STATE;
 
-    public static void changeFSMStatus(String action) {
-        String endState = getFinalStateByPreviousState(action, mState);
-        if (!endState.equals(mState)) {
-            mState = endState;
-        }
-        mListener.onTransition(mState, endState);
+    public FiniteStateMachine(IOnTransitionListener listener) {
+        mListener = listener;
     }
 
-    public static String getFinalStateByPreviousState(String action, String state) {
+    private String getFinalStateByPreviousState(String action, String state) {
         JSONObject jsonObjectStates = JsonLoader.getStateDependencyByAction(action);
         if (jsonObjectStates != null) {
             try {
@@ -34,12 +31,20 @@ public class FiniteStateMachine {
         return "";
     }
 
-    public static void subscribeToTransition(IFiniteStateMachine listener) {
-        mListener = listener;
+    @Override
+    public void changeState(String action) {
+        String endState = getFinalStateByPreviousState(action, mState);
+        String debugLogState = mState;
+        if (!endState.equals(mState)) {
+            mState = endState;
+        }
+        boolean isArmed = mState.contains(ARMED_CONST);
+        mListener.onTransition(debugLogState, endState, action, isArmed);
     }
 
-    public static void unsubscribeToTransition() {
-        mListener = null;
+    @Override
+    public void resetState() {
+        mState = ROOT_STATE;
     }
 }
 
