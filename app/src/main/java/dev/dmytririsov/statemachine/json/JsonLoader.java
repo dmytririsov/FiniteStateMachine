@@ -1,4 +1,4 @@
-package dev.dmytririsov.statemachine;
+package dev.dmytririsov.statemachine.json;
 
 import android.content.Context;
 

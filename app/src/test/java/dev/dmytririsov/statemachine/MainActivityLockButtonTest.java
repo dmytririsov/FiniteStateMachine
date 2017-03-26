@@ -10,6 +10,8 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.annotation.Config;
 
+import dev.dmytririsov.statemachine.ui.MainActivity;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**

@@ -1,7 +1,9 @@
-package dev.dmytririsov.statemachine;
+package dev.dmytririsov.statemachine.fsm;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import dev.dmytririsov.statemachine.json.JsonLoader;
 
 /**
  * @author Dmytri on 25.03.2017.
@@ -45,6 +47,7 @@ public class FiniteStateMachine implements IFiniteStateMachine {
     @Override
     public void resetState() {
         mState = ROOT_STATE;
+        mListener.onTransition("", "", "", false);
     }
 }
 

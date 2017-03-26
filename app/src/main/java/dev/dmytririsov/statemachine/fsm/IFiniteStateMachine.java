@@ -1,4 +1,4 @@
-package dev.dmytririsov.statemachine;
+package dev.dmytririsov.statemachine.fsm;
 
 /**
  * @author Dmytri on 25.03.2017.
